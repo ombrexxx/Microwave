@@ -15,7 +15,6 @@ public class MicrowaveController {
 
 	@Autowired
 	private MicrowaveService microwaveService;
-
 	
 	@RequestMapping("/")
     public String index(Model theModel) {

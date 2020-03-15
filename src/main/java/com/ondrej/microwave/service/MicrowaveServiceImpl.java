@@ -49,13 +49,12 @@ public class MicrowaveServiceImpl implements MicrowaveService {
 			saveStateOfMicrowave(microwave.getState(), microwave.isDoorClosed(), time, weight);
 		}
 		
-		logger.info(message);
 		return message;
 
 	}
 
 	@Scheduled(fixedRate = 1000)
-	private void executingRun() {
+	void executingRun() {
 		if (microwave.getState() == State.RUNNING && time >= 0) {
 			logger.info(String.format("Remaining time is %s seconds", time));
 			time--;
@@ -74,7 +73,6 @@ public class MicrowaveServiceImpl implements MicrowaveService {
 			saveStateOfMicrowave(microwave.getState(), microwave.isDoorClosed(), time, weight);
 		}
 
-		logger.info(message);
 		resetValues();
 		return message;
 	}
@@ -94,7 +92,6 @@ public class MicrowaveServiceImpl implements MicrowaveService {
 			saveStateOfMicrowave(microwave.getState(), microwave.isDoorClosed(), time, weight);
 		}
 
-		logger.info(message);
 		return message;
 	}
 
@@ -108,7 +105,6 @@ public class MicrowaveServiceImpl implements MicrowaveService {
 			saveStateOfMicrowave(microwave.getState(), microwave.isDoorClosed(), time, weight);
 		}
 
-		logger.info(message);
 		return message;
 	}
 
@@ -125,7 +121,6 @@ public class MicrowaveServiceImpl implements MicrowaveService {
 			saveStateOfMicrowave(microwave.getState(), microwave.isDoorClosed(), time, weight);
 		}
 
-		logger.info(message);
 		return message;
 	}
 
@@ -133,7 +128,6 @@ public class MicrowaveServiceImpl implements MicrowaveService {
 	public String heatMeat(double weight) {
 		extractedFromPreset(weight, PresetMicrowaveFunctions.MEAT_COEFICIENT);
 
-		logger.info(message);
 		resetWeight();
 		return message;
 	}
@@ -142,7 +136,6 @@ public class MicrowaveServiceImpl implements MicrowaveService {
 	public String heatVeg(double weight) {
 		extractedFromPreset(weight, PresetMicrowaveFunctions.VEG_COEFICIENT);
 
-		logger.info(message);
 		resetWeight();
 		return message;
 	}
@@ -151,7 +144,6 @@ public class MicrowaveServiceImpl implements MicrowaveService {
 	public String heatBread(double weight) {
 		extractedFromPreset(weight, PresetMicrowaveFunctions.BREAD_COEFICIENT);
 
-		logger.info(message);
 		resetWeight();
 		return message;
 	}
@@ -183,7 +175,6 @@ public class MicrowaveServiceImpl implements MicrowaveService {
 			message = String.format("Timer set to %s seconds", time);
 		}
 
-		logger.info(message);
 		return message;
 	}
 
@@ -198,7 +189,6 @@ public class MicrowaveServiceImpl implements MicrowaveService {
 			microwave.setDoorClosed(false);
 		}
 
-		logger.info(message);
 		return message;
 	}
 
@@ -211,7 +201,6 @@ public class MicrowaveServiceImpl implements MicrowaveService {
 			microwave.setDoorClosed(true);
 		}
 
-		logger.info(message);
 		return message;
 	}
 
