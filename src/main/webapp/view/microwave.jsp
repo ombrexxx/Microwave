@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Microwave</title
+	<title>Microwave</title>
 </head>
 
 <body>
@@ -12,7 +12,7 @@
 	<br>
 	<br>
 	<!-- Set time -->
-	<form action="/microwave/setTime" method="get">
+	<form action="/microwave/setTime" method="post">
 		<input type="submit" value="Set time">   <input type="text" id="time" name="time" min="1" pattern="[0-9]{1,3}" required> Seconds (1 - 999)<br> 
 	</form>
 	<br>
@@ -34,7 +34,7 @@
 	<br>
 	
 	<br>
-	<form method="get">
+	<form method="post">
 		<input type="submit" value="HEAT BREAD" formaction="/microwave/heatBread">
 		<input type="submit" value="HEAT MEAT" formaction="/microwave/heatMeat">
 		<input type="submit" value="HEAT VEG" formaction="/microwave/heatVeg">   

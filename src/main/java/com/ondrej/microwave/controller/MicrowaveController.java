@@ -3,6 +3,7 @@ package com.ondrej.microwave.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,25 +59,25 @@ public class MicrowaveController {
 		return "microwave";
 	}
 
-	@GetMapping("/setTime")
+	@PostMapping("/setTime")
 	public String setTimerMicrowave(@RequestParam(defaultValue = "0") int time, Model theModel) {
 		theModel.addAttribute("message", microwaveService.setTimer(time));
 		return "microwave";
 	}
 
-	@GetMapping("/heatVeg")
+	@PostMapping("/heatVeg")
 	public String heatVeg(@RequestParam(defaultValue = "1") double weight, Model theModel) {
 		theModel.addAttribute("message", microwaveService.heatVeg(weight));
 		return "microwave";
 	}
 
-	@GetMapping("/heatBread")
+	@PostMapping("/heatBread")
 	public String heatBread(@RequestParam(defaultValue = "1") double weight, Model theModel) {
 		theModel.addAttribute("message", microwaveService.heatBread(weight));
 		return "microwave";
 	}
 
-	@GetMapping("/heatMeat")
+	@PostMapping("/heatMeat")
 	public String heatMeat(@RequestParam(defaultValue = "1") double weight, Model theModel) {
 		theModel.addAttribute("message", microwaveService.heatMeat(weight));
 		return "microwave";
